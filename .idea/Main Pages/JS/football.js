@@ -12,8 +12,8 @@ let teamInfo = {
 
     },
     displayInfo: function (data) {
-        const test = data['response']
-        const {name, logo, id, country} = test[0]['team'];
+        const teamresp = data['response']
+        const {name, logo, id, country} = teamresp[0]['team'];
         console.log(name, logo, id, country)
         document.querySelector(".team_name").innerText = name
         document.querySelector(".team_icon").src = logo;
@@ -47,8 +47,8 @@ let detailedteamInfo = {
             .catch(error => console.log('error', error));
     },
     displaydetailedInfo: function (data) {
-        const test2 = data['response'];
-        const league = test2[0]['league']
+        const stanresp = data['response'];
+        const league = stanresp[0]['league']
         const standings = league['standings']
         const {rank, points} = standings[0][0]
         console.log(rank, points);
