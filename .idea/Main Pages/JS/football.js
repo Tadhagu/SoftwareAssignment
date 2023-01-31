@@ -36,7 +36,7 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event){
 
 let detailedteamInfo = {
     fetchdetailedteamInfo: function () {
-        fetch("https://v3.football.api-sports.io/standings?league=39&season=2022", {
+        fetch(`https://v3.football.api-sports.io/standings?league=39&team=${id}&season=2023`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "v3.football.api-sports.io",
@@ -47,10 +47,11 @@ let detailedteamInfo = {
             .catch(error => console.log('error', error));
     },
     displaydetailedInfo: function (data) {
-        const test = data['response']
-        const standingsarray = test[0]['league'];
-        const {rank, points, form, group} = standingsarray[0]['standings']
-        console.log(rank, points, form, group);
+        const test2 = data['response'];
+        const league = test2[0]['league']
+        const standings = league['standings']
+        const {rank, points} = standings[0][0]
+        console.log(rank, points);
     },
 };
 
