@@ -1,3 +1,5 @@
+let id = 50
+
 let teamInfo = {
     fetchInfo: function (nameofteam) {
         fetch("https://v3.football.api-sports.io/teams?name=" + nameofteam , {
@@ -12,11 +14,12 @@ let teamInfo = {
 
     },
     displayInfo: function (data) {
-        const teamresp = data['response']
-        const {name, logo, id, country} = teamresp[0]['team'];
+        let teamresp = data['response']
+        let {name, logo, country} = teamresp[0]['team'];
+        id = teamresp[0]['team']['id']
         console.log(name, logo, id, country)
         document.querySelector(".team_name").innerText = name
-        document.querySelector(".team_icon").src = logo;
+        document.querySelector(".team_icon").src = logo
     },
     search: function () {
         this.fetchInfo(document.querySelector(".search-bar").value);
@@ -36,7 +39,7 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event){
 
 let detailedteamInfo = {
     fetchdetailedteamInfo: function () {
-        fetch(`https://v3.football.api-sports.io/standings?league=39&team=${id}&season=2023`, {
+        fetch(`https://v3.football.api-sports.io/standings?league=39&team=${id}&season=2022`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "v3.football.api-sports.io",
@@ -47,10 +50,10 @@ let detailedteamInfo = {
             .catch(error => console.log('error', error));
     },
     displaydetailedInfo: function (data) {
-        const stanresp = data['response'];
-        const league = stanresp[0]['league']
-        const standings = league['standings']
-        const {rank, points} = standings[0][0]
+        let stanresp = data['response'];
+        let league = stanresp[0]['league']
+        let standings = league['standings']
+        let {rank, points} = standings[0][0]
         console.log(rank, points);
     },
 };
