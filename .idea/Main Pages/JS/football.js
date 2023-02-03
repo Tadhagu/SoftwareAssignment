@@ -53,8 +53,8 @@ let detailedteamInfo = {
         let stanresp = data['response'];
         let league = stanresp[0]['league']
         let standings = league['standings']
-        let {rank, points} = standings[0][0]
-        console.log(rank, points);
+        let {rank, points, group, form,} = standings[0][0]
+        console.log(rank, points, group, form);
     },
 };
 
