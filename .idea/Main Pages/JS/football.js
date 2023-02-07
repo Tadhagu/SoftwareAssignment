@@ -1,5 +1,5 @@
-let id = 50
 
+let id = 50
 let teamInfo = {
     fetchInfo: function (nameofteam) {
         fetch("https://v3.football.api-sports.io/teams?name=" + nameofteam , {

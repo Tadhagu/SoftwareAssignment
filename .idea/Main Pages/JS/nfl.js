@@ -33,3 +33,24 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event){
         Data.search();
     }
 });
+
+let detailedteamInfo = {
+    fetchdetailedteamInfo: function () {
+        fetch(`https://v1.american-football.api-sports.io/standings?league=1&team=${id}&season=2022`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "v1.american-football.api-sports.io",
+                "x-rapidapi-key": "aefedc74219709b46c5b8bcded1a0d04"
+            }
+        }).then(response => response.json()
+        ).then((data) => this.displaydetailedInfo(data))
+            .catch(error => console.log('error', error));
+    },
+    displaydetailedInfo: function (data) {
+        let stanresp = data['response'];
+        let league = stanresp[0]['league']
+        let standings = league['standings']
+        let {rank, points, group, form,} = standings[0][0]
+        console.log(rank, points, group, form);
+    },
+};

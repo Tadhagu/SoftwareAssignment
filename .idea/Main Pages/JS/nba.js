@@ -1,3 +1,4 @@
+let id = 50
 let Data = {
     fetchData: function (nameofteam) {
         fetch("https://v1.basketball.api-sports.io/teams?name=" + nameofteam , {
@@ -33,3 +34,21 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event){
         Data.search();
     }
 });
+
+let detailedteamInfo = {
+    fetchdetailedteamInfo: function () {
+        fetch(`https://v1.basketball.api-sports.io/standings?league=12&team=${id}&season=2019-2020`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "v1.basketball.api-sports.io",
+                "x-rapidapi-key": "aefedc74219709b46c5b8bcded1a0d04"
+            }
+        }).then(response => response.json()
+        ).then((data) => this.displaydetailedInfo(data))
+            .catch(error => console.log('error', error));
+    },
+    displaydetailedInfo: function (data) {
+        let stanresp = data['response'];
+        console.log(staninfo);
+    },
+};
