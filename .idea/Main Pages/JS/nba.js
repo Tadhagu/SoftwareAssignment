@@ -1,3 +1,14 @@
+let name = "Orlando Magic"
+var modalBtn = document.querySelector('.modal-btn')
+var modalBg = document.querySelector('.modal-bg')
+var modalClose = document.querySelector('.modal-close')
+
+modalBtn.addEventListener('click', function(){
+    modalBg.classList.add('bg-active');
+});
+modalClose.addEventListener('click', function (){
+    modalBg.classList.remove('bg-active')
+});
 let id = 50
 let Data = {
     fetchData: function (nameofteam) {
@@ -14,10 +25,12 @@ let Data = {
     },
     displayData: function (data) {
         let teamresp = data['response']
-        let {name, logo,} = teamresp[0];
+        let {logo} = teamresp[0];
         id = teamresp[0]['id']
+        name = teamresp[0]['name']
         console.log(name, logo, id)
-        document.querySelector(".team_name").innerText = name
+        document.getElementById("teamname").innerHTML = name;
+        document.querySelector(".team_name").innerText = name;
         //document.querySelector(".team_icon").src = logo;
     },
     search: function () {
