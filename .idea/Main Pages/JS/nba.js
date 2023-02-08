@@ -13,9 +13,10 @@ let Data = {
 
     },
     displayData: function (data) {
-        const test = data['response']
-        const {name, logo, id, country} = test[0];
-        console.log(name, logo, id, country)
+        let teamresp = data['response']
+        let {name, logo,} = teamresp[0];
+        id = teamresp[0]['id']
+        console.log(name, logo, id)
         document.querySelector(".team_name").innerText = name
         //document.querySelector(".team_icon").src = logo;
     },
@@ -49,6 +50,7 @@ let detailedteamInfo = {
     },
     displaydetailedInfo: function (data) {
         let stanresp = data['response'];
-        console.log(staninfo);
+        let {position, form, stage} = stanresp[0][0]
+        console.log(stanresp, position, form, stage);
     },
 };

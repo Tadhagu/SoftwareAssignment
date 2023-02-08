@@ -1,4 +1,3 @@
-
 let id = 50
 let teamInfo = {
     fetchInfo: function (nameofteam) {
@@ -17,7 +16,7 @@ let teamInfo = {
         let teamresp = data['response']
         let {name, logo, country} = teamresp[0]['team'];
         id = teamresp[0]['team']['id']
-        console.log(name, logo, id, country)
+        console.log(name, logo, id, country, teamresp)
         document.querySelector(".team_name").innerText = name
         document.querySelector(".team_icon").src = logo
     },
