@@ -151,9 +151,17 @@ header ul li a.active
 }
 .modal-btn
 {
-    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    background-color: #000000d0;
+    color: white;
     border: none;
     cursor: pointer;
+    height: 50px;
+    width: 500px;
+    outline: none;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 .modal-close
 {
@@ -163,4 +171,9 @@ header ul li a.active
     font-weight: bold;
     cursor: pointer;
     color: black;
+}
+.teamname
+{
+    font-weight: bold;
+    font-size: 200px;
 }
