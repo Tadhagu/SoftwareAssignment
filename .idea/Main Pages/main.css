@@ -142,11 +142,11 @@ header ul li a.active
 {
     position: relative;
     background-color: white;
+    color: black;
     width: 30%;
     height: 30%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
 }
 .modal-btn
@@ -160,8 +160,10 @@ header ul li a.active
     height: 50px;
     width: 500px;
     outline: none;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-top: 20px;
+    font-size: 60px;
+    font-family: 'Rubik', sans-serif;
 }
 .modal-close
 {
@@ -171,9 +173,4 @@ header ul li a.active
     font-weight: bold;
     cursor: pointer;
     color: black;
-}
-.teamname
-{
-    font-weight: bold;
-    font-size: 200px;
 }
