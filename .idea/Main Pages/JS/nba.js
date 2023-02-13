@@ -21,6 +21,7 @@ let Data = {
         }).then(response => response.json()
         ).then((data) => this.displayData(data))
             .catch(error => console.log('error', error));
+        detailedteamInfo.fetchdetailedteamInfo();
 
     },
     displayData: function (data) {
@@ -30,8 +31,9 @@ let Data = {
         name = teamresp[0]['name']
         console.log(name, logo, id)
         document.getElementById("teamname").innerHTML = name;
-        document.querySelector(".team_name").innerText = name
-        //document.querySelector(".team_icon").src = logo;
+        document.querySelector(".team_name").innerText = name;
+        document.querySelector(".team_icon").src = logo;
+
     },
     search: function () {
         this.fetchData(document.querySelector(".search-bar").value);
@@ -65,5 +67,7 @@ let detailedteamInfo = {
         let stanresp = data['response'];
         let {position, form, stage} = stanresp[0][0]
         console.log(stanresp, position, form, stage);
+        document.getElementById("games_text").innerHTML = form;
+        document.getElementById("pos_text").innerHTML = position;
     },
 };

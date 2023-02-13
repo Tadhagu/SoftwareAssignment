@@ -163,7 +163,7 @@ header ul li a.active
     margin-left: 30px;
     margin-top: 20px;
     font-size: 60px;
-    font-family: 'Rubik', sans-serif;
+    font-family: inherit;
 }
 .modal-close
 {
