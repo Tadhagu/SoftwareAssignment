@@ -1,4 +1,4 @@
-let id = 50
+let id = 0
 let teamInfo = {
     fetchInfo: function (nameofteam) {
         fetch("https://v3.football.api-sports.io/teams?name=" + nameofteam , {
@@ -10,15 +10,18 @@ let teamInfo = {
         }).then(response => response.json()
         ).then((data) => this.displayInfo(data))
             .catch(error => console.log('error', error));
-
     },
     displayInfo: function (data) {
         let teamresp = data['response']
         let {name, logo, country} = teamresp[0]['team'];
+        let {address, image} = teamresp[0]['venue'];
         id = teamresp[0]['team']['id']
-        console.log(name, logo, id, country, teamresp)
+
+        console.log(name, logo, id, country, teamresp, address, image)
         document.querySelector(".team_name").innerText = name
         document.querySelector(".team_icon").src = logo
+        document.body.style.backgroundImage = "url("+image+")"
+        detailedteamInfo.fetchdetailedteamInfo();
     },
     search: function () {
         this.fetchInfo(document.querySelector(".search-bar").value);
@@ -53,7 +56,9 @@ let detailedteamInfo = {
         let league = stanresp[0]['league']
         let standings = league['standings']
         let {rank, points, group, form,} = standings[0][0]
-        console.log(rank, points, group, form);
+        document.getElementById("games_text").innerHTML = form;
+        document.getElementById("pos_text").innerHTML = points;
+        console.log(standings, rank, points, group, form);
     },
 };
 
