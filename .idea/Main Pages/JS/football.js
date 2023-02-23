@@ -22,6 +22,7 @@ let teamInfo = {
         document.querySelector(".team_icon").src = logo
         document.body.style.backgroundImage = "url("+image+")"
         detailedteamInfo.fetchdetailedteamInfo();
+        teamStats.fetchTeamStats()
     },
     search: function () {
         this.fetchInfo(document.querySelector(".search-bar").value);
@@ -55,10 +56,26 @@ let detailedteamInfo = {
         let stanresp = data['response'];
         let league = stanresp[0]['league']
         let standings = league['standings']
-        let {rank, points, group, form,} = standings[0][0]
+        let {rank, points, group, form, goalsdiff} = standings[0][0]
         document.getElementById("games_text").innerHTML = form;
         document.getElementById("pos_text").innerHTML = points;
         console.log(standings, rank, points, group, form);
     },
 };
-
+let teamStats = {
+    fetchTeamStats: function () {
+        fetch(`"https://v3.football.api-sports.io/teams/statistics?league=39&team=${id}&season=2022`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "v3.football.api-sports.io",
+                "x-rapidapi-key": "aefedc74219709b46c5b8bcded1a0d04",
+            }
+        }).then(response => response.json()
+        ).then((data) => this.displayteamStats(data))
+            .catch(error => console.log('error', error));
+    },
+    displayteamStats: function (data) {
+        let teamresp = data['response']
+        console.log(teamresp)
+    },
+};
