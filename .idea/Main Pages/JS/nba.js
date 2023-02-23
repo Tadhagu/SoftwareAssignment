@@ -17,7 +17,9 @@ let Data = {
         let teamresp = data['response']
         let {name, logo} = teamresp[0];
         id = teamresp[0]['id']
+        name = teamresp[0]['name']
         console.log(name, logo, id)
+        document.getElementById("teamname").innerHTML = name;
         document.querySelector(".team_name").innerText = name;
         document.querySelector(".team_icon").src = logo;
 

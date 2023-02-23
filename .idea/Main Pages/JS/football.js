@@ -1,4 +1,4 @@
-let id = 0
+let id = 50
 let teamInfo = {
     fetchInfo: function (nameofteam) {
         fetch("https://v3.football.api-sports.io/teams?name=" + nameofteam , {
@@ -10,19 +10,20 @@ let teamInfo = {
         }).then(response => response.json()
         ).then((data) => this.displayInfo(data))
             .catch(error => console.log('error', error));
+
     },
     displayInfo: function (data) {
         let teamresp = data['response']
         let {name, logo, country} = teamresp[0]['team'];
-        let {address, image} = teamresp[0]['venue'];
         id = teamresp[0]['team']['id']
-
-        console.log(name, logo, id, country, teamresp, address, image)
+        let {address, image} = teamresp[0]['venue'];
+        console.log(name, logo, id, country, teamresp)
         document.querySelector(".team_name").innerText = name
         document.querySelector(".team_icon").src = logo
         document.body.style.backgroundImage = "url("+image+")"
         detailedteamInfo.fetchdetailedteamInfo();
         teamStats.fetchTeamStats()
+
     },
     search: function () {
         this.fetchInfo(document.querySelector(".search-bar").value);
@@ -64,11 +65,11 @@ let detailedteamInfo = {
 };
 let teamStats = {
     fetchTeamStats: function () {
-        fetch(`"https://v3.football.api-sports.io/teams/statistics?league=39&team=${id}&season=2022`, {
+        fetch(`https://v3.football.api-sports.io/teams/statistics?league=39&team=${id}&season=2022`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "aefedc74219709b46c5b8bcded1a0d04",
+                "x-rapidapi-key": "aefedc74219709b46c5b8bcded1a0d04"
             }
         }).then(response => response.json()
         ).then((data) => this.displayteamStats(data))
@@ -76,6 +77,7 @@ let teamStats = {
     },
     displayteamStats: function (data) {
         let teamresp = data['response']
-        console.log(teamresp)
+        let {home, away, total} = teamresp['fixtures']['played']
+        console.log(teamresp, home, away, total)
     },
 };
