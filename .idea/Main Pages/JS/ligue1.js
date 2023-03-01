@@ -60,6 +60,8 @@ let detailedteamInfo = {
         let {rank, points, group, form, goalsdiff} = standings[0][0]
         document.getElementById("games_text").innerHTML = form;
         document.getElementById("pos_text").innerHTML = points;
+        document.getElementById("goaldiff_text").innerHTML = goalsDiff;
+        document.getElementById("rank_text").innerHTML = rank;
         console.log(standings, rank, points, group, form);
     },
 };
@@ -79,5 +81,8 @@ let teamStats = {
         let teamresp = data['response']
         let {home, away, total} = teamresp['fixtures']['played']
         console.log(teamresp, home, away, total)
+        document.getElementById("home_text").innerHTML = home;
+        document.getElementById("away_text").innerHTML = away;
+        document.getElementById("played_text").innerHTML = total;
     },
 };

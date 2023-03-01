@@ -54,6 +54,7 @@ header ul li a.active
 }
 .card
 {
+    position: relative;
     background: #000000d0;
     color: white;
     padding: 2em;
@@ -93,6 +94,10 @@ header ul li a.active
 }
 .team_icon
 {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right:0;
 }
 .search
 {
