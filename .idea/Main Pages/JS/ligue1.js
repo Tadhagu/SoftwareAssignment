@@ -21,6 +21,7 @@ let teamInfo = {
         document.querySelector(".team_name").innerText = name
         document.querySelector(".team_icon").src = logo
         document.body.style.backgroundImage = "url("+image+")"
+        document.querySelector(".stats").classList.remove("loading");
         detailedteamInfo.fetchdetailedteamInfo();
         teamStats.fetchTeamStats()
 
@@ -57,7 +58,7 @@ let detailedteamInfo = {
         let stanresp = data['response'];
         let league = stanresp[0]['league']
         let standings = league['standings']
-        let {rank, points, group, form, goalsdiff} = standings[0][0]
+        let {rank, points, group, form, goalsDiff} = standings[0][0]
         document.getElementById("games_text").innerHTML = form;
         document.getElementById("pos_text").innerHTML = points;
         document.getElementById("goaldiff_text").innerHTML = goalsDiff;
@@ -86,3 +87,4 @@ let teamStats = {
         document.getElementById("played_text").innerHTML = total;
     },
 };
+teamInfo.fetchInfo("Paris Saint Germain")

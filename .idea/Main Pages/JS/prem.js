@@ -21,6 +21,7 @@ let teamInfo = {
         document.querySelector(".team_name").innerText = name
         document.querySelector(".team_icon").src = logo
         document.body.style.backgroundImage = "url("+image+")"
+        document.querySelector(".stats").classList.remove("loading");
         detailedteamInfo.fetchdetailedteamInfo();
         teamStats.fetchTeamStats()
 
@@ -86,3 +87,4 @@ let teamStats = {
         console.log(teamresp, home, away, total)
     },
 };
+teamInfo.fetchInfo("Chelsea")
