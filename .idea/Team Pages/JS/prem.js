@@ -9,8 +9,7 @@ let teamInfo = {
             }
         }).then(response => response.json()
         ).then((data) => this.displayInfo(data))
-            .catch(error => console.log('error', error));
-
+            .catch(error => alert(error))
     },
     displayInfo: function (data) {
         let teamresp = data['response']

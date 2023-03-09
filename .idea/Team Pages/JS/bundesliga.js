@@ -58,12 +58,11 @@ let detailedteamInfo = {
         let stanresp = data['response'];
         let league = stanresp[0]['league']
         let standings = league['standings']
-        let {rank, points, group, form, goalsdiff} = standings[0][0]
+        let {rank, points, group, form, goalsDiff} = standings[0][0]
         document.getElementById("games_text").innerHTML = form;
         document.getElementById("pos_text").innerHTML = points;
         document.getElementById("goaldiff_text").innerHTML = goalsDiff;
         document.getElementById("rank_text").innerHTML = rank;
-
         console.log(standings, rank, points, group, form);
     },
 };
@@ -88,4 +87,4 @@ let teamStats = {
         document.getElementById("played_text").innerHTML = total;
     },
 };
-teamInfo.fetchInfo("Borussia Dortmund")
+teamInfo.fetchInfo("Bayern Munich")
