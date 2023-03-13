@@ -1,6 +1,6 @@
 let id = 100
 let test = 200
-let position = placeholder
+let position = "placeholder"
 let playerInfo;
 playerInfo = {
     fetchPlayerInfo: function (nameofplayer) {
@@ -19,21 +19,43 @@ playerInfo = {
         let {age, name, nationality} = playeresp[0]["player"]
         let stats = playeresp[0]["statistics"][0]
         let {total, assists} = stats["goals"]
+        let {accuracy, passes} = stats["passes"]
         position = stats["games"]["position"]
         let {appearences} = stats["games"]
-
         console.log(playeresp, age, name, nationality, total, position, appearences)
+        playerInfo.checkpos();
     },
+    fetchAttackerInfo: function (data) {
+
+    },
+
+    fetchMidfielderInfo: function (data) {
+
+    },
+
+    fetchDefenderInfo: function (data) {
+
+    },
+
+    fetchGoalkeeperInfo: function (data) {
+
+    },
+
     search: function () {
         this.fetchPlayerInfo(document.querySelector(".search-bar").value);
     },
 
     checkpos: function () {
-        if (position = Attacker) {
-            test = 50
-        } else if (position = Goalkeeper) {
+        if (position == "Attacker") {
+            playerInfo.fetchAttackerInfo()
+        } else if (position == "Midfielder") {
+            test = 150
+        } else if (position == "Goalkeeper") {
             test = 100
+        } else if (position == "Defender") {
+            test = 250
         }
+        console.log(test)
 
     },
 };
