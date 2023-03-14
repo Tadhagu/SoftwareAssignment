@@ -1,8 +1,9 @@
 let id = 100
 let test = 200
 let position = "placeholder"
-let playerInfo;
-playerInfo = {
+let playeresp = "placeholder"
+let stats = "placeholder"
+let playerInfo = {
     fetchPlayerInfo: function (nameofplayer) {
         fetch("https://v3.football.api-sports.io/players?league=39&search=" + nameofplayer, {
             "method": "GET",
@@ -15,30 +16,39 @@ playerInfo = {
             .catch(error => console.log('error', error));
     },
     displayPlayerInfo: function (data) {
-        let playeresp = data['response']
+        playeresp = data['response']
         let {age, name, nationality} = playeresp[0]["player"]
-        let stats = playeresp[0]["statistics"][0]
-        let {total, assists} = stats["goals"]
+        stats = playeresp[0]["statistics"][0]
         let {accuracy, passes} = stats["passes"]
         position = stats["games"]["position"]
         let {appearences} = stats["games"]
-        console.log(playeresp, age, name, nationality, total, position, appearences)
+        document.querySelector(".stats").classList.remove("loading");
+        console.log(playeresp, age, name, nationality, position, appearences)
         playerInfo.checkpos();
     },
     fetchAttackerInfo: function (data) {
-
+        let {total, assists} = stats["goals"]
+        let {attempts, success} = stats["dribbles"]
+        console.log(total, assists)
     },
 
     fetchMidfielderInfo: function (data) {
-
+        let {assists} = stats["goals"]
+        let {total, key, accuracy} = stats["passes"]
+        let {attempts, success} = stats["dribbles"]
+        console.log(total, assists, key, accuracy, attempts, success)
     },
 
     fetchDefenderInfo: function (data) {
-
+        let {won} = stats["duels"]
+        let {total, blocks, interceptions} = stats["tackles"]
+        let {yellow, red} = stats["cards"]
+        console.log(won, total, blocks, interceptions, yellow, red)
     },
 
     fetchGoalkeeperInfo: function (data) {
-
+        let {saves} = stats["goals"]
+        console.log(saves)
     },
 
     search: function () {
@@ -49,11 +59,11 @@ playerInfo = {
         if (position == "Attacker") {
             playerInfo.fetchAttackerInfo()
         } else if (position == "Midfielder") {
-            test = 150
-        } else if (position == "Goalkeeper") {
-            test = 100
+            playerInfo.fetchMidfielderInfo()
         } else if (position == "Defender") {
-            test = 250
+            playerInfo.fetchDefenderInfo()
+        } else if (position == "Goalkeeper") {
+            playerInfo.fetchGoalkeeperInfo()
         }
         console.log(test)
 
