@@ -14,15 +14,21 @@ let playerInfo = {
         }).then(response => response.json()
         ).then((data) => this.displayPlayerInfo(data))
             .catch(error => console.log('error', error));
+
     },
     displayPlayerInfo: function (data) {
+        document.querySelector(".stats").classList.remove("loading");
         playeresp = data['response']
         let {age, name, nationality} = playeresp[0]["player"]
         stats = playeresp[0]["statistics"][0]
         let {accuracy, passes} = stats["passes"]
         position = stats["games"]["position"]
-        let {appearences} = stats["games"]
-        document.querySelector(".stats").classList.remove("loading");
+        let {appearences} = stats["games"];
+        document.querySelector(".team_name").innerText = name;
+        document.getElementById("apps_text").innerHTML = appearences;
+        document.getElementById("age_text").innerHTML = age;
+        document.getElementById("pos_text").innerHTML = position;
+        document.getElementById("nat_text").innerHTML = nationality;
         console.log(playeresp, age, name, nationality, position, appearences)
         playerInfo.checkpos();
     },
