@@ -33,12 +33,14 @@ let playerInfo = {
         playerInfo.checkpos();
     },
     fetchAttackerInfo: function (data) {
+        document.querySelector(".attacker").classList.remove("check")
         let {total, assists} = stats["goals"]
         let {attempts, success} = stats["dribbles"]
         console.log(total, assists)
     },
 
     fetchMidfielderInfo: function (data) {
+        document.querySelector(".attacker").classList.remove("check")
         let {assists} = stats["goals"]
         let {total, key, accuracy} = stats["passes"]
         let {attempts, success} = stats["dribbles"]
@@ -46,6 +48,7 @@ let playerInfo = {
     },
 
     fetchDefenderInfo: function (data) {
+        document.querySelector(".attacker").classList.remove("check")
         let {won} = stats["duels"]
         let {total, blocks, interceptions} = stats["tackles"]
         let {yellow, red} = stats["cards"]
@@ -53,6 +56,7 @@ let playerInfo = {
     },
 
     fetchGoalkeeperInfo: function (data) {
+        document.querySelector(".attacker").classList.remove("check")
         let {saves} = stats["goals"]
         console.log(saves)
     },

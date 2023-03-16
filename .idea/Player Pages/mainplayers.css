@@ -191,3 +191,35 @@ header ul li a.active
     text-align: center;
 
 }
+.attacker.check
+{
+    visibility: hidden;
+}
+.attacker.check:after
+{
+    visibility: visible;
+}
+.midfielder.check
+{
+    visibility: hidden;
+}
+.midfielder.check:after
+{
+    visibility: visible;
+}
+.defender.check
+ {
+     visibility: hidden;
+ }
+.defender.check:after
+{
+    visibility: visible;
+}
+.goalkeeper.check
+ {
+     visibility: hidden;
+ }
+.goalkeeper.check:after
+{
+    visibility: visible;
+}
