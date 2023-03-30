@@ -14,10 +14,10 @@
         <div class="dropdown">
             <button class="dropbtn">Leagues</button>
             <div class="dropdown-content">
-                <a href="laliga.html">La Liga</a>
-                <a href="seriea.html">Serie A</a>
-                <a href="bundesliga.html">Bundesliga</a>
-                <a href="ligue1.html">Ligue 1</a>
+                <a href="laligaplayers.html">La Liga</a>
+                <a href="serieaplayers.html">Serie A</a>
+                <a href="bundesligaplayers.html">Bundesliga</a>
+                <a href="ligue1players.html">Ligue 1</a>
             </div>
         </div>
     </ul>
@@ -29,6 +29,7 @@
     <div class="search">
         <label><input type="text" class="search-bar" placeholder="Search"></label>
         <button class="button"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg></button>
+        <img src="" alt="" class="player_icon"/>
         <img src="" alt="" class="team_icon"/>
     </div>
     <div class="stats loading">
@@ -37,24 +38,13 @@
         <p>Current Age: <span id="age_text"></span></p>
         <p>Position: <span id="pos_text"></span></p>
         <p>National Team: <span id="nat_text"></span></p>
-        <!--<li><a href="football-fixtures.html">Current Fixtures</a></li>
-        <li><a href="football-standings.html">Full Standings</a></li> -->
-    </div>
-    <div class="attacker check">
-        <p>G/A: <span id="ga_text"></span></p>
+        <p>G/A: (<span id ="goals_text"> </span> / <span id="a_text"></span>) <span id="ga_text"></span></p>
         <p>Dribbles Completed: <span id="drib_text"></span></p>
-    </div>
-    <div class="midfielder check">
         <p>Assists: <span id="assists_text"></span></p>
         <p>Pass Accuracy <span id="acc_text"></span></p>
-    </div>
-    <div class="defender check">
         <p>Duels Won <span id="duels_text"></span></p>
-    </div>
-    <div class="goalkeeper check">
-        <p>Total Saves<span id="saves_text"></span></p>
-    </div>
-
+        <!--<li><a href="football-fixtures.html">Current Fixtures</a></li>
+        <li><a href="football-standings.html">Full Standings</a></li> -->
 
     <script src="../JS/premplayers.js" defer></script>
 </div>

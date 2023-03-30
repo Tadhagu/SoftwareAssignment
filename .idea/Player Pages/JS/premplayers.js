@@ -19,11 +19,14 @@ let playerInfo = {
     displayPlayerInfo: function (data) {
         document.querySelector(".stats").classList.remove("loading");
         playeresp = data['response']
-        let {age, name, nationality} = playeresp[0]["player"]
+        let {age, name, nationality, photo} = playeresp[0]["player"]
         stats = playeresp[0]["statistics"][0]
+        let {id, logo} = stats["team"]
         let {accuracy, passes} = stats["passes"]
         position = stats["games"]["position"]
         let {appearences} = stats["games"];
+        document.querySelector(".player_icon").src = photo
+        document.querySelector(".team_icon").src = logo
         document.querySelector(".team_name").innerText = name;
         document.getElementById("apps_text").innerHTML = appearences;
         document.getElementById("age_text").innerHTML = age;
@@ -33,14 +36,16 @@ let playerInfo = {
         playerInfo.checkpos();
     },
     fetchAttackerInfo: function (data) {
-        document.querySelector(".attacker").classList.remove("check")
+        x = document.getElementById("drib_text");
+        x.style.display = "block";
         let {total, assists} = stats["goals"]
         let {attempts, success} = stats["dribbles"]
         console.log(total, assists)
     },
 
     fetchMidfielderInfo: function (data) {
-        document.querySelector(".attacker").classList.remove("check")
+        var midfielderCheck = document.querySelector("midfielder");
+        midfielderCheck.style.visibility = "visible";
         let {assists} = stats["goals"]
         let {total, key, accuracy} = stats["passes"]
         let {attempts, success} = stats["dribbles"]
@@ -48,7 +53,8 @@ let playerInfo = {
     },
 
     fetchDefenderInfo: function (data) {
-        document.querySelector(".attacker").classList.remove("check")
+        let defenderCheck = document.getElementById("defender")
+        defenderCheck.style.visibility = "visible";
         let {won} = stats["duels"]
         let {total, blocks, interceptions} = stats["tackles"]
         let {yellow, red} = stats["cards"]
@@ -56,7 +62,8 @@ let playerInfo = {
     },
 
     fetchGoalkeeperInfo: function (data) {
-        document.querySelector(".attacker").classList.remove("check")
+        let gkCheck = document.getElementById("goalkeeper")
+        gkCheck.style.visibility = "visible";
         let {saves} = stats["goals"]
         console.log(saves)
     },
@@ -65,7 +72,7 @@ let playerInfo = {
         this.fetchPlayerInfo(document.querySelector(".search-bar").value);
     },
 
-    checkpos: function () {
+    checkpos: function (position) {
         if (position == "Attacker") {
             playerInfo.fetchAttackerInfo()
         } else if (position == "Midfielder") {
@@ -75,8 +82,6 @@ let playerInfo = {
         } else if (position == "Goalkeeper") {
             playerInfo.fetchGoalkeeperInfo()
         }
-        console.log(test)
-
     },
 };
 
@@ -89,3 +94,4 @@ let playerInfo = {
             playerInfo.search();
         }
     });
+playerInfo.fetchPlayerInfo("rashford")

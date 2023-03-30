@@ -99,6 +99,13 @@ header ul li a.active
     bottom: 0;
     right:0;
 }
+.player_icon
+{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right:0;
+}
 .search
 {
     display: flex;
@@ -191,35 +198,4 @@ header ul li a.active
     text-align: center;
 
 }
-.attacker.check
-{
-    visibility: hidden;
-}
-.attacker.check:after
-{
-    visibility: visible;
-}
-.midfielder.check
-{
-    visibility: hidden;
-}
-.midfielder.check:after
-{
-    visibility: visible;
-}
-.defender.check
- {
-     visibility: hidden;
- }
-.defender.check:after
-{
-    visibility: visible;
-}
-.goalkeeper.check
- {
-     visibility: hidden;
- }
-.goalkeeper.check:after
-{
-    visibility: visible;
-}
+
