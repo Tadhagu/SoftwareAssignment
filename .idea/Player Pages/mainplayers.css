@@ -198,4 +198,7 @@ header ul li a.active
     text-align: center;
 
 }
-
+.attacker_text
+{
+    display: none;
+}

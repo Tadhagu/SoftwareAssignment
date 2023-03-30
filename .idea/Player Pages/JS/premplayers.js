@@ -36,8 +36,7 @@ let playerInfo = {
         playerInfo.checkpos();
     },
     fetchAttackerInfo: function (data) {
-        x = document.getElementById("drib_text");
-        x.style.display = "block";
+        document.getElementById("attacker_text").style.display = "block";
         let {total, assists} = stats["goals"]
         let {attempts, success} = stats["dribbles"]
         console.log(total, assists)
@@ -72,8 +71,8 @@ let playerInfo = {
         this.fetchPlayerInfo(document.querySelector(".search-bar").value);
     },
 
-    checkpos: function (position) {
-        if (position == "Attacker") {
+    checkpos: function () {
+        if (position == 'Attacker') {
             playerInfo.fetchAttackerInfo()
         } else if (position == "Midfielder") {
             playerInfo.fetchMidfielderInfo()
@@ -82,6 +81,7 @@ let playerInfo = {
         } else if (position == "Goalkeeper") {
             playerInfo.fetchGoalkeeperInfo()
         }
+    console.log(position)
     },
 };
 
