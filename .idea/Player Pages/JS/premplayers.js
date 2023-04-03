@@ -39,21 +39,26 @@ let playerInfo = {
         document.getElementById("attacker_text").style.display = "block";
         let {total, assists} = stats["goals"]
         let {attempts, success} = stats["dribbles"]
+        document.getElementById("goals_text").innerHTML = total;
+        document.getElementById("a_text").innerHTML = assists;
+        document.getElementById("drib_text").innerHTML = attempts;
+        document.getElementById("completed_text").innerHTML = success;
         console.log(total, assists)
     },
 
     fetchMidfielderInfo: function (data) {
-        var midfielderCheck = document.querySelector("midfielder");
-        midfielderCheck.style.visibility = "visible";
+        document.getElementById("midfielder_text").style.display = "block";
         let {assists} = stats["goals"]
         let {total, key, accuracy} = stats["passes"]
         let {attempts, success} = stats["dribbles"]
+        document.getElementById("assists_text").innerHTML = assists;
+        document.getElementById("acc_text").innerHTML = accuracy;
+
         console.log(total, assists, key, accuracy, attempts, success)
     },
 
     fetchDefenderInfo: function (data) {
-        let defenderCheck = document.getElementById("defender")
-        defenderCheck.style.visibility = "visible";
+        document.getElementById("defender_text").style.display = "block";
         let {won} = stats["duels"]
         let {total, blocks, interceptions} = stats["tackles"]
         let {yellow, red} = stats["cards"]
