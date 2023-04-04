@@ -198,7 +198,19 @@ header ul li a.active
     text-align: center;
 
 }
-.attacker_text
+#attacker_text
+{
+    display: none;
+}
+#midfielder_text
+{
+    display: none;
+}
+#defender_text
+{
+    display: none;
+}
+#goalkeeper_text
 {
     display: none;
 }

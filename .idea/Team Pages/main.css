@@ -191,3 +191,7 @@ header ul li a.active
     text-align: center;
 
 }
+.stats li
+{
+    padding: 4.4px
+}

@@ -16,7 +16,7 @@ let teamInfo = {
         let {name, logo, country} = teamresp[0]['team'];
         id = teamresp[0]['team']['id']
         let {address, image} = teamresp[0]['venue'];
-        console.log(name, logo, id, country, teamresp)
+        console.log(name, logo, id, country)
         document.querySelector(".team_name").innerText = name
         document.querySelector(".team_icon").src = logo
         document.body.style.backgroundImage = "url("+image+")"
@@ -86,4 +86,5 @@ let teamStats = {
         console.log(teamresp, home, away, total)
     },
 };
-teamInfo.fetchInfo("Chelsea")
+
+//teamInfo.fetchInfo("Chelsea")
