@@ -1,9 +1,7 @@
-// Get all the players from this competition
 players_data(39, 2021)
     .then((players) => {
-        console.log(players); // To display the results if necessary
+        console.log(players);
     });
-
 
 async function call_api(endpoint, params = {}) {
     let parameters = '';
@@ -29,7 +27,7 @@ async function players_data (league, season, page = 3, players_data = []) {
     if (players.paging.current < players.paging.total) {
         const nextPage = players.paging.current + 1;
         if (nextPage % 2 === 1){
-            await new Promise(resolve => setTimeout(resolve, 1000)); // sleep for 1 second
+            await new Promise(resolve => setTimeout(resolve, 1000));
     }
         players_data = await players_data(league, season, nextPage, players_data);
     }
@@ -39,6 +37,6 @@ async function players_data (league, season, page = 3, players_data = []) {
 // Get all the teams from this competition
 //call_api('teams', { league: 39, season: 2021 })
     //.then((teams) => {
-        //console.log(teams); // To display the results if necessary
+        //console.log(teams);
     //});
 
